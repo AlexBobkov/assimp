@@ -368,3 +368,7 @@ if(WIN32)
 		add_custom_command(TARGET UpdateAssimpLibsDebugSymbolsAndDLLs COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_BINARY_DIR}/code/Debug/assimp-${ASSIMP_MSVC_VERSION}-mtd.pdb		${LIB_DIR}assimp-${ASSIMP_MSVC_VERSION}-mtd.pdb VERBATIM)
 	endif(MSVC12 OR MSVC14)
 endif (WIN32)
+
+install(EXPORT assimpTargets FILE assimpTargets.cmake			
+            DESTINATION "${ASSIMP_LIB_INSTALL_DIR}/cmake/assimp-${ASSIMP_VERSION_MAJOR}.${ASSIMP_VERSION_MINOR}"
+			NAMESPACE ASSIMP::)
